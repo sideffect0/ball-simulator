@@ -1,6 +1,7 @@
 import pygame, sys
 from pygame.locals import QUIT
 
+game_clock = pygame.time.Clock()
 
 def draw_screen(screen, ball_pos):
     bg = pygame.image.load('resources/ns-pygame-bg.jpg')
@@ -37,6 +38,7 @@ def main():
                 center_x, center_y = draw_screen(screen, (center_x, center_y))
 
         pygame.display.update()
+        game_clock.tick(60)
 
 
 main()
