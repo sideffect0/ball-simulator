@@ -1,7 +1,7 @@
-# install dependencies  
+## install dependencies  
 
-poetry install  
+`poetry install`  
 
-# run script  
+## run script  
 
-poetry run python main.py  
+`poetry run python main.py` 
