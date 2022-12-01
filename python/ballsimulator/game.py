@@ -37,7 +37,7 @@ class Window(object):
         self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         self.bg = pygame.image.load('resources/ns-pygame-bg.jpg')
         pygame.display.set_caption('Ball Simulator')
-        self.balls = [Ball() for _ in range(5)]
+        self.balls = [Ball() for _ in range(7)]
 
     def render(self):
         self.screen.blit(self.bg, (0, 0))
@@ -45,25 +45,8 @@ class Window(object):
             ball.move()
             ball.render(self.screen)
 
-def draw_screen(screen, ball_pos):
-    bg = pygame.image.load('resources/ns-pygame-bg.jpg')
-    screen.blit(bg, (0, 0))
-    ball = pygame.image.load('resources/ns-pygame-ball.png')
-    ball_sf = ball.get_rect(center=ball_pos)
-    screen.blit(ball, ball_sf)
-    return ball_pos
-
-
-def init_pygame():
-    pygame.init()
-    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-    pygame.display.set_caption('Ball Simulator')
-    return screen, draw_screen(screen, (100, 100))
-
-
 def start():
     window = Window()
-
     while True:
         for event in pygame.event.get():
             if event.type == QUIT:
