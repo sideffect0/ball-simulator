@@ -45,6 +45,14 @@ class Window(object):
         pygame.display.set_caption('Ball Simulator')
         self.balls = [Ball() for _ in range(7)]
 
+    def stop(self):
+        for ball in self.balls:
+            ball.stop()
+
+    def start(self):
+        for ball in self.balls:
+            ball.start()
+
     def render(self):
         self.screen.blit(self.bg, (0, 0))
         for ball in self.balls:
@@ -58,7 +66,12 @@ def start():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-        window.render()         
+            elif event.type == pygame.KEYDOWN:
+                if event.key == ord('p'):
+                    window.stop()
+                elif event.key == ord('s'):
+                    window.start()
+        window.render()        
         pygame.display.update()
         game_clock.tick(FPS)
         # time.sleep(0.1)
