@@ -8,6 +8,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pygame = "^2.1.2"
+pygbag = "^0.5.0"
+speechrecognition = "^3.9.0"
+pyaudio = "^0.2.12"
 
 
 [build-system]

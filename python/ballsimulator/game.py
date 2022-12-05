@@ -23,6 +23,12 @@ class Ball(object):
         ball_sf = self.ball.get_rect(center=self.pos)
         screen.blit(self.ball, ball_sf)
 
+    def stop(self):
+        self.velX, self.velY = (0,0)
+
+    def start(self):
+        self.velX, self.velY = (max(1, randint(-4, 4)), max(1, randint(-4, 4)))
+
     def move(self):
         x,y = self.pos
         if x <= 0 or x >= BOUND_X:
